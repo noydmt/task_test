@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    //
+    protected $table = 'tests'; // モデルが紐づく先のテーブルを指定
 }
