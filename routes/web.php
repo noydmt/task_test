@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function() {
+  Route::get('index', 'ContactFormController@index');
+});
+
 Route::get('tests/test', 'TestController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('contacts', ContactFormController::class);
