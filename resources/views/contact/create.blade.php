@@ -14,7 +14,8 @@
             </div>
           @endif
           <div class="row">
-            <form method="POST" action="input.php">
+            <form method="POST" action="{{ route('contact.store') }}">
+              @csrf
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="your_name">氏名</label>

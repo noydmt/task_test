@@ -10,9 +10,10 @@
 |        | GET|HEAD | api/user                      |                       | Closure                                                                | api,auth:api                                         |
 |        | GET|HEAD | contact/create                | contact.create        | App\Http\Controllers\ContactFormController@create                      | web,auth                                             |
 |        | GET|HEAD | contact/index                 | contact.index         | App\Http\Controllers\ContactFormController@index                       | web,auth                                             |
+|        | POST     | contact/store                 | contact.store         | App\Http\Controllers\ContactFormController@store                       | web,auth                                             |
 |        | GET|HEAD | home                          | home                  | App\Http\Controllers\HomeController@index                              | web,auth                                             |
-|        | GET|HEAD | login                         | login                 | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest                                            |
 |        | POST     | login                         |                       | App\Http\Controllers\Auth\LoginController@login                        | web,guest                                            |
+|        | GET|HEAD | login                         | login                 | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest                                            |
 |        | POST     | logout                        | logout                | App\Http\Controllers\Auth\LoginController@logout                       | web                                                  |
 |        | GET|HEAD | password/confirm              | password.confirm      | App\Http\Controllers\Auth\ConfirmPasswordController@showConfirmForm    | web,auth                                             |
 |        | POST     | password/confirm              |                       | App\Http\Controllers\Auth\ConfirmPasswordController@confirm            | web,auth                                             |
