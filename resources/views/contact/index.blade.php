@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <button type="submit" class="btn btn-primary" onclick="location.href='{{ route('contact.create') }}' ">新規登録</button>
                     This is index of content;
                 </div>
             </div>
