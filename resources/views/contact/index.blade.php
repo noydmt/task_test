@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -14,7 +14,24 @@
                         </div>
                     @endif
                     <button type="submit" class="btn btn-primary" onclick="location.href='{{ route('contact.create') }}' ">新規登録</button>
-                    This is index of content;
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">updated_at</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($contacts as $contact)
+                          <tr>
+                            <th scope="row">{{ $contact->id }}</th>
+                            <td>{{ $contact->your_name }}</td>
+                            <td>{{ $contact->updated_at }}</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>

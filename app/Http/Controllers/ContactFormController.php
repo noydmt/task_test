@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; // クエリビルダー
 use App\Models\ContactForm;
 
 class ContactFormController extends Controller
@@ -14,7 +15,15 @@ class ContactFormController extends Controller
      */
     public function index()
     {
-        return view('contact.index'); // resource/views/contact/index.php
+      // Eroquent ORmapper
+      // $contacts = ContactForm::all();
+
+      // QueryBuilder
+      $contacts = DB::table('contact_forms')
+        ->select('id', 'your_name', 'updated_at')
+        ->orderBy('updated_at', 'desc')
+        ->get();
+      return view('contact.index', compact('contacts')); // resource/views/contact/index.php
     }
 
     /**
