@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ContactForm;
 
 class ContactFormController extends Controller
 {
@@ -34,8 +35,16 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-      $name = $request->input('your_name');
-      dd($name);
+      $contact = new ContactForm;
+
+      $contact->$name = $request->input('your_name');
+      $contact->$email = $request->input('email');
+      $contact->$url = $request->input('url');
+      $contact->$gender = $request->input('gender');
+      $contact->$age = $request->input('age');
+      $contact->$contact = $request->input('contact');
+
+      $contact->save(); // Model に用意されている saveメソッドでテーブルにデータ保存
     }
 
     /**
