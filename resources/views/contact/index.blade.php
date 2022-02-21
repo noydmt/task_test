@@ -20,6 +20,7 @@
                             <th scope="col">id</th>
                             <th scope="col">name</th>
                             <th scope="col">updated_at</th>
+                            <th scope="col">detail</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                             <th scope="row">{{ $contact->id }}</th>
                             <td>{{ $contact->your_name }}</td>
                             <td>{{ $contact->updated_at }}</td>
+                            <td><a href="{{ route('contact.show', ['id' => $contact->id ]) }}">詳細を見る</a></td>
                           </tr>
                           @endforeach
                         </tbody>
