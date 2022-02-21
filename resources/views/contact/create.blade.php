@@ -58,7 +58,7 @@
                   <label class="form-check-label" for="caution">注意事項</label>
                 </div>
               </div>
-              <input class="btn btn-primary" type="submit" name="btn_confirm" value="確認する">
+              <input class="btn btn-primary" type="submit" name="btn_confirm" value="登録する">
               <input type="hidden" name="csrf">
             </form>
           </div>
