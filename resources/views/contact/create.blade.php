@@ -62,7 +62,6 @@
               <input type="hidden" name="csrf">
             </form>
           </div>
-              This is create of content;
         </div>
       </div>
     </div>
