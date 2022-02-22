@@ -20,12 +20,10 @@
             {{ $gender }}
             {{ $age }}
             {{ $contact->contact }}
-            <form method="GET" action="{{ route('contact.edit', ['id' => $contact->id ]) }}">
-              @csrf
-              <input class="btn btn-primary" type="submit" name="btn_confirm" value="変更する">
-              <input type="hidden" name="csrf">
-            </form>
+            <!-- <form method="GET" action="{{ route('contact.edit', ['id' => $contact->id ]) }}"> -->
+            <!-- </form> -->
           </div>
+          <button type="submit" class="btn btn-primary" onclick="location.href='{{ route('contact.edit', ['id' => $contact->id ]) }}' ">編集</button>
         </div>
       </div>
     </div>
