@@ -24,9 +24,21 @@
             <!-- </form> -->
           </div>
           <button type="submit" class="btn btn-primary" onclick="location.href='{{ route('contact.edit', ['id' => $contact->id ]) }}' ">編集</button>
+          <form action="{{ route('contact.destroy', ['id' => $contact->id ]) }}" method="POST" id="delete_{{ $contact->id }}">
+            @csrf
+            <a href="#" class="btn btn-danger" data-id="{{ $contact->id }}" onclick="deletePost(this)">削除</a>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function deletePost(e) {
+    'use strict';
+    if (confirm('削除しても良いですか?')) {
+      document.getElementById('delete_' + e.dataset.id).submit();
+    }
+  }
+</script>
 @endsection
