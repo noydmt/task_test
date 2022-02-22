@@ -14,7 +14,7 @@
             </div>
           @endif
           <div class="row">
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('contact.update', [ 'id' => $contact->id ]) }}">
             <div class="col-md-6">
                 <div class="form-group">
                   <label for="your_name">氏名</label>
@@ -123,7 +123,7 @@
               </div>
               <input type="hidden" name="csrf">
               @csrf
-              <input class="btn btn-primary" type="submit" name="btn_confirm" value="更新する">
+              <input class="btn btn-primary" type="submit" value="更新する">
               <input type="hidden" name="csrf">
             </form>
           </div>
