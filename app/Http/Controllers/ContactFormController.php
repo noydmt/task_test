@@ -24,7 +24,8 @@ class ContactFormController extends Controller
       $contacts = DB::table('contact_forms')
         ->select('id', 'your_name', 'updated_at')
         ->orderBy('updated_at', 'desc')
-        ->get();
+        ->paginate(20); // 20件しか取得されていない
+        // ->get();
       return view('contact.index', compact('contacts')); // resource/views/contact/index.php
     }
 
