@@ -15,9 +15,9 @@
                   @endif
                   <button type="submit" class="btn btn-primary" onclick="location.href='{{ route('contact.create') }}' ">新規登録</button>
                   <div class="col-md-4">
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">検索</button>
+                    <form class="d-flex" method="GET" action="{{ route('contact.index') }}">
+                      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                   </div>
                   <table class="table">
@@ -40,7 +40,7 @@
                       @endforeach
                     </tbody>
                   </table>
-                  {{ $contacts->links() }}
+                  {{ $contacts->appends($params)->links() }}
                 </div>
             </div>
         </div>
