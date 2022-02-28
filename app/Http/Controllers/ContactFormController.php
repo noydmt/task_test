@@ -15,18 +15,32 @@ class ContactFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
       // Eroquent ORmapper
       // $contacts = ContactForm::all();
 
       // QueryBuilder
-      $contacts = DB::table('contact_forms')
-        ->select('id', 'your_name', 'updated_at')
-        ->orderBy('updated_at', 'desc')
-        ->paginate(20); // 20件しか取得されていない
-        // ->get();
-      return view('contact.index', compact('contacts')); // resource/views/contact/index.php
+      // $contacts = DB::table('contact_forms')
+      //   ->select('id', 'your_name', 'updated_at')
+      //   ->orderBy('updated_at', 'desc')
+      //   ->paginate(20); // 20件しか取得されていない
+      // ->get();
+
+      $search = $req->input('search'); // クエリパラメータ取得
+      $query = DB::table('contact_forms')->select('id', 'your_name', 'updated_at');
+      if ($search != null) {
+        // クエリパラメータが存在する場合
+        $search = mb_convert_kana($search, 's'); // クエリパラメータに存在する空白を半角空白に変更
+        $keywords = preg_split('/[\s]/', $search, -1, PREG_SPLIT_NO_EMPTY);
+        foreach ($keywords as $keyword) {
+          $query->where('your_name', 'like', '%' . $keyword . '%');
+        }
+      }
+      $query->orderBy('updated_at', 'desc');
+      $contacts = $query->paginate(20);
+      $params = array('search' => $search);
+      return view('contact.index', compact('contacts', 'params')); // resource/views/contact/index.php
     }
 
     /**
