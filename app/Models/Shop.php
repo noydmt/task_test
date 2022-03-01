@@ -7,7 +7,7 @@ use App\Models\Area;
 
 class Shop extends Model
 {
-    public function Area() {
+    public function area() {
         return $this->belongsTo(Area::class);
     }
 }
